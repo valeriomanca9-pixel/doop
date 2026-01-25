@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="it" class="h-full">
+ <head>
+    <style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 700ms ease, transform 700ms ease;
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="doop - Digital marketing, branding e social media per attività locali. Il digitale, fatto bene.">
+  <title>doop | Il digitale, fatto bene</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #E91E8C 0%, #FF6B9D 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(233, 30, 140, 0.15);
+    }
+    
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+    .stagger-6 { animation-delay: 0.6s; }
+    
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: blobFloat 8s ease-in-out infinite;
+    }
+    
+    @keyframes blobFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(30px, -30px) scale(1.1); }
+    }
+    
+    .magnetic-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .magnetic-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .magnetic-btn:hover::before {
+      left: 100%;
+    }
+    
+    .service-card {
+      background: linear-gradient(145deg, #ffffff 0%, #fafafa 100%);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .package-card {
+      transition: all 0.4s ease;
+    }
+    
+    .package-card:hover {
+      border-color: #E91E8C;
+    }
+    
+    .package-recommended {
+      background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 100%);
+      border: 2px solid #E91E8C;
+    }
+    
+    .step-line {
+      background: linear-gradient(180deg, #E91E8C 0%, transparent 100%);
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #E91E8C;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .portfolio-item {
+      overflow: hidden;
+    }
+    
+    .portfolio-item img {
+      transition: transform 0.6s ease;
+    }
+    
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #E91E8C;
+      box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.1);
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body class="h-full bg-white text-gray-900">
+  <div id="app-wrapper" class="w-full h-full overflow-auto"><!-- Navigation -->
+   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"><a href="#hero" class="text-2xl font-bold"> <span class="text-gray-900">d</span><span class="gradient-text">oo</span><span class="text-gray-900">p</span> </a>
+     <div class="hidden md:flex items-center gap-8"><a href="#chi-siamo" class="nav-link text-sm font-medium text-gray-600 hover:text-gray-900">Chi siamo</a> <a href="#servizi" class="nav-link text-sm font-medium text-gray-600 hover:text-gray-900">Servizi</a> <a href="#pacchetti" class="nav-link text-sm font-medium text-gray-600 hover:text-gray-900">Pacchetti</a> <a href="#portfolio" class="nav-link text-sm font-medium text-gray-600 hover:text-gray-900">Portfolio</a> <a href="#contatti" class="magnetic-btn bg-gray-900 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"> Contattaci </a>
+     </div><button id="mobile-menu-btn" class="md:hidden p-2">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg></button>
+    </div><!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+     <div class="px-6 py-4 space-y-4"><a href="#chi-siamo" class="block text-gray-600 hover:text-gray-900">Chi siamo</a> <a href="#servizi" class="block text-gray-600 hover:text-gray-900">Servizi</a> <a href="#pacchetti" class="block text-gray-600 hover:text-gray-900">Pacchetti</a> <a href="#portfolio" class="block text-gray-600 hover:text-gray-900">Portfolio</a> <a href="#contatti" class="block bg-gray-900 text-white px-5 py-2.5 rounded-full text-sm font-medium text-center">Contattaci</a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section id="hero" class="relative min-h-[75vh] flex items-center justify-center overflow-hidden px-6 pt-28 pb-16"><!-- Background Blobs -->
+    <div class="blob w-96 h-96 bg-pink-400 top-20 -left-48" style="animation-delay: 0s;"></div>
+    <div class="blob w-80 h-80 bg-purple-400 bottom-20 -right-40" style="animation-delay: 2s;"></div>
+    <div class="blob w-64 h-64 bg-pink-300 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="animation-delay: 4s;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto text-center">
+     <div class="fade-in stagger-1"><span class="inline-block px-4 py-1.5 bg-gray-100 rounded-full text-sm font-medium text-gray-600 mb-8"> Digital Marketing &amp; Branding </span>
+     </div>
+     <h1 id="hero-headline" class="fade-in stagger-2 text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6">Prima. E <span class="gradient-text">doop</span>.</h1>
+     <p id="hero-subtitle" class="fade-in stagger-3 text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">Il digitale fatto bene. Aiutiamo attività locali a crescere online con strategia, creatività e competenza.</p>
+     <div class="fade-in stagger-4 flex flex-col sm:flex-row items-center justify-center gap-4"><a href="#contatti" class="magnetic-btn bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-pink-500/30 transition-all"> Inizia ora → </a> <a href="#pacchetti" class="px-8 py-4 rounded-full font-semibold text-lg border-2 border-gray-200 hover:border-gray-300 transition-colors"> Scopri i pacchetti </a>
+     </div>
+     <div class="fade-in stagger-5 mt-16 flex items-center justify-center gap-8 text-sm text-gray-500">
+      <div class="flex items-center gap-2">
+       <svg class="w-5 h-5 text-green-500" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+       </svg><span>Niente vincoli</span>
+      </div>
+      <div class="flex items-center gap-2">
+       <svg class="w-5 h-5 text-green-500" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+       </svg><span>Risultati concreti</span>
+      </div>
+      <div class="flex items-center gap-2">
+       <svg class="w-5 h-5 text-green-500" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+       </svg><span>100% trasparenza</span>
+      </div>
+     </div>
+    </div><!-- Scroll Indicator -->
+    
+   </section><!-- Chi Siamo Section -->
+   <section id="chi-siamo" class="py-24 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+     <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div><span class="text-pink-500 font-semibold text-sm tracking-wider uppercase mb-4 block">Chi siamo</span>
+       <h2 id="about-title" class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Non siamo un'agenzia.<br>
+         Siamo <span class="gradient-text">doop</span>.</h2>
+       <p id="about-text" class="text-lg text-gray-600 leading-relaxed mb-6">Doop nasce per dare alle attività locali gli strumenti digitali che funzionano davvero. Basta soluzioni complicate, preventivi infiniti e promesse vuote.</p>
+       <p class="text-lg text-gray-600 leading-relaxed mb-8">Il nostro approccio è semplice: ascoltiamo, analizziamo, creiamo. Ogni progetto è costruito su misura, con un unico obiettivo: <strong>risultati che puoi vedere</strong>.</p>
+       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-white px-4 py-4 rounded-xl shadow-sm flex items-center justify-center gap-3 min-h-[72px] text-center">
+         <div class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center"><span class="text-xl">🎯</span>
+         </div><span class="font-medium">Orientati ai risultati</span>
+        </div>
+        <div class="bg-white px-4 py-4 rounded-xl shadow-sm flex items-center justify-center gap-3 min-h-[72px] text-center">
+         <div class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center"><span class="text-xl">⚡</span>
+         </div><span class="font-medium">Veloci e concreti</span>
+        </div>
+        <div class="bg-white px-4 py-4 rounded-xl shadow-sm flex items-center justify-center gap-3 min-h-[72px] text-center">
+         <div class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center"><span class="text-xl">💡</span>
+         </div><span class="font-medium">Creativi per natura</span>
+        </div>
+        <div class="bg-white px-4 py-4 rounded-xl shadow-sm flex items-center justify-center gap-3 min-h-[72px] text-center">
+  <div class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center">
+    <span class="text-xl">🤝</span>
+  </div>
+  <span class="font-medium">Trasparenti, sempre</span>
+</div>
+       </div>
+      </div>
+      <div class="relative">
+       <div class="aspect-square bg-gradient-to-br from-pink-500 to-purple-600 rounded-3xl p-8 flex items-center justify-center">
+        <div class="text-center text-white">
+         <div class="text-8xl font-bold mb-4">
+          d<span class="text-pink-200">oo</span>p
+         </div>
+         <div class="text-xl opacity-90">
+          Il digitale, fatto DAVVERO bene.
+         </div>
+        </div>
+       </div>
+       <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 max-w-xs">
+        <div class="flex items-center gap-3 mb-3">
+         <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div><span class="font-semibold">Sempre operativi</span>
+        </div>
+        <p class="text-sm text-gray-600">Risposte rapide, supporto continuo, zero attese infinite.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Servizi Section -->
+   <section id="servizi" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16"><span class="text-pink-500 font-semibold text-sm tracking-wider uppercase mb-4 block">Cosa facciamo</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">I nostri servizi</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">Tutto quello che serve alla tua attività per brillare online. Niente di più, niente di meno.</p>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Service 1 -->
+      <div class="service-card hover-lift rounded-2xl p-8">
+       <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2M9 12h6m-6 4h6" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-bold mb-3">Social Media Management</h3>
+       <p class="text-gray-600 leading-relaxed">Gestiamo i tuoi social con contenuti che parlano al tuo pubblico. Pianificazione, creazione e analisi incluse.</p>
+      </div><!-- Service 2 -->
+      <div class="service-card hover-lift rounded-2xl p-8">
+       <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-bold mb-3">Campagne Pubblicitarie</h3>
+       <p class="text-gray-600 leading-relaxed">Ads su Facebook, Instagram e Google pensate per il tuo territorio. Budget ottimizzato, risultati misurabili.</p>
+      </div><!-- Service 3 -->
+      <div class="service-card hover-lift rounded-2xl p-8">
+       <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-bold mb-3">Siti Web</h3>
+       <p class="text-gray-600 leading-relaxed">Siti veloci, belli e che funzionano. Ottimizzati per mobile e pensati per convertire visitatori in clienti.</p>
+      </div><!-- Service 4 -->
+      <div class="service-card hover-lift rounded-2xl p-8">
+       <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-bold mb-3">Branding &amp; Visual Identity</h3>
+       <p class="text-gray-600 leading-relaxed">Logo, colori, font e tono di voce. Costruiamo un'identità che ti rende riconoscibile e memorabile.</p>
+      </div><!-- Service 5 -->
+      <div class="service-card hover-lift rounded-2xl p-8">
+       <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-bold mb-3">QR Code Marketing</h3>
+       <p class="text-gray-600 leading-relaxed">Menu digitali, landing page e esperienze interattive. Il ponte perfetto tra offline e online.</p>
+      </div><!-- Service 6 -->
+      <div class="service-card hover-lift rounded-2xl p-8 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+       <div class="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-7 h-7 text-pink-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-bold mb-3">Pacchetto Completo</h3>
+       <p class="text-gray-300 leading-relaxed">Tutti i servizi integrati in un'unica strategia. Per chi vuole fare sul serio.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Pacchetti Section -->
+   <section id="pacchetti" class="py-24 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16"><span class="text-pink-500 font-semibold text-sm tracking-wider uppercase mb-4 block">Pricing</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Scegli il tuo pacchetto</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">Soluzioni chiare, prezzi trasparenti. Nessuna sorpresa, solo risultati.</p>
+     </div>
+     <div class="grid md:grid-cols-3 gap-8"><!-- Package 1 -->
+      <div class="package-card bg-white rounded-3xl p-8 border-2 border-gray-100 hover-lift">
+       <div class="mb-6"><span class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Starter</span>
+        <h3 class="text-2xl font-bold mt-2">Base</h3>
+        <p class="text-gray-600 mt-2">Per chi inizia a muovere i primi passi online</p>
+       </div>
+       <div class="mb-8"><span class="text-4xl font-bold">€297</span> <span class="text-gray-500">/mese</span>
+       </div>
+       <ul class="space-y-4 mb-8">
+        <li class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>2 social gestiti</span></li>
+        <li class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>8 post/mese</span></li>
+        <li class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Report mensile</span></li>
+        <li class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Supporto email</span></li>
+       </ul><a href="#contatti" class="block w-full py-4 text-center rounded-full border-2 border-gray-200 font-semibold hover:border-pink-500 hover:text-pink-500 transition-colors"> Richiedi info </a>
+      </div><!-- Package 2 - Recommended -->
+      <div class="package-card package-recommended rounded-3xl p-8 text-white hover-lift relative">
+       <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-pink-500 to-pink-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+        🔥 Più scelto
+       </div>
+       <div class="mb-6"><span class="text-sm font-semibold text-pink-400 uppercase tracking-wider">Business</span>
+        <h3 class="text-2xl font-bold mt-2">Crescita</h3>
+        <p class="text-gray-400 mt-2">Per attività pronte a crescere sul serio</p>
+       </div>
+       <div class="mb-8"><span class="text-4xl font-bold">€597</span> <span class="text-gray-400">/mese</span>
+       </div>
+       <ul class="space-y-4 mb-8">
+        <li class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-pink-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>3 social gestiti</span></li>
+        <li class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-pink-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>16 post/mese + stories</span></li>
+        <li class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-pink-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Campagne ads incluse</span></li>
+        <li class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-pink-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Shooting foto/video</span></li>
+        <li class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-pink-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Supporto WhatsApp</span></li>
+       </ul><a href="#contatti" class="block w-full py-4 text-center rounded-full bg-gradient-to-r from-pink-500 to-pink-600 font-semibold hover:shadow-lg hover:shadow-pink-500/30 transition-all"> Inizia ora </a>
+      </div><!-- Package 3 -->
+      <div class="package-card bg-white rounded-3xl p-8 border-2 border-gray-100 hover-lift">
+       <div class="mb-6"><span class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Premium</span>
+        <h3 class="text-2xl font-bold mt-2">Full Digital</h3>
+        <p class="text-gray-600 mt-2">Per chi vuole dominare il digitale locale</p>
+       </div>
+       <div class="mb-8"><span class="text-4xl font-bold">€997</span> <span class="text-gray-500">/mese</span>
+       </div>
+       <ul class="space-y-4 mb-8">
+        <li class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Tutti i social</span></li>
+        <li class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Contenuti illimitati</span></li>
+        <li class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Sito web incluso</span></li>
+        <li class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Branding completo</span></li>
+        <li class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Consulenza strategica</span></li>
+       </ul><a href="#contatti" class="block w-full py-4 text-center rounded-full border-2 border-gray-200 font-semibold hover:border-pink-500 hover:text-pink-500 transition-colors"> Richiedi info </a>
+      </div>
+     </div>
+     <p class="text-center text-gray-500 mt-8">Hai esigenze particolari? <a href="#contatti" class="text-pink-500 font-semibold hover:underline">Parliamone</a></p>
+    </div>
+    
+</section>
+
+<!-- Come Lavoriamo Section -->
+<section id="processo" class="py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="text-pink-500 font-semibold text-sm tracking-wider uppercase mb-4 block">Processo</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Come lavoriamo</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">Cinque step. Zero fumo.</p>
+    </div>
+
+<div class="grid md:grid-cols-5 gap-8 pl-4 md:pl-6">
+      <!-- Step 1 -->
+      <div class="relative group transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl rounded-2xl p-2">
+        <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mb-6 transition-all duration-500 group-hover:rotate-3">
+          1
+        </div>
+        <h3 class="text-xl font-bold mb-3">Analisi</h3>
+        <p class="text-gray-600">Ascoltiamo la tua storia, capiamo il tuo mercato, studiamo i competitor.</p>
+        <div class="hidden md:block absolute top-8 left-20 w-full h-0.5 bg-gradient-to-r from-pink-500 to-transparent"></div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="relative group transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl rounded-2xl p-2">
+        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mb-6 transition-all duration-500 group-hover:rotate-3">
+          2
+        </div>
+        <h3 class="text-xl font-bold mb-3">Strategia</h3>
+        <p class="text-gray-600">Creiamo un piano su misura con obiettivi chiari e tempistiche realistiche.</p>
+        <div class="hidden md:block absolute top-8 left-20 w-full h-0.5 bg-gradient-to-r from-purple-500 to-transparent"></div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="relative group transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl rounded-2xl p-2">
+        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mb-6 transition-all duration-500 group-hover:rotate-3">
+          3
+        </div>
+        <h3 class="text-xl font-bold mb-3">Creazione</h3>
+        <p class="text-gray-600">Produciamo contenuti, lanciamo campagne, costruiamo la tua presenza online.</p>
+        <div class="hidden md:block absolute top-8 left-20 w-full h-0.5 bg-gradient-to-r from-blue-500 to-transparent"></div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="relative group transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl rounded-2xl p-2">
+        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mb-6 transition-all duration-500 group-hover:rotate-3">
+          4
+        </div>
+        <h3 class="text-xl font-bold mb-3">Risultati</h3>
+        <p class="text-gray-600">Monitoriamo, ottimizziamo e ti mostriamo i numeri. Sempre trasparenti.</p>
+        <div class="hidden md:block absolute top-8 left-20 w-full h-0.5 bg-gradient-to-r from-green-500 to-transparent"></div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="relative group transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl rounded-2xl p-2">
+        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mb-6 transition-all duration-500 group-hover:rotate-3">
+          5
+        </div>
+        <h3 class="text-xl font-bold mb-3">Ottimizzazione</h3>
+        <p class="text-gray-600">Nel tempo miglioriamo performance e strategia. Non ti lasciamo mai solo.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+  const items = document.querySelectorAll('#processo .group');
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('animate-[fadeUp_700ms_ease-out_forwards]');
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.2 });
+
+  items.forEach(el => io.observe(el));
+</script>
+
+<style>
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</section>
+
+
+<!-- Portfolio Section -->
+
+  <!-- Portfolio Section -->
+<section id="portfolio" class="py-24 px-6 bg-gray-900 text-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-pink-400 font-semibold text-sm tracking-wider uppercase mb-4 block">Portfolio</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">I nostri lavori</h2>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto">Alcuni progetti che ci hanno reso orgogliosi.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Portfolio Item 1 -->
+      <div class="portfolio-item group rounded-2xl overflow-hidden bg-gray-800 relative cursor-pointer">
+        <a href="portfolio/il-piccolo-paradiso.html"
+           class="absolute inset-0 z-10"
+           aria-label="Apri progetto Il Piccolo Paradiso"></a>
+
+        <div class="aspect-video relative overflow-hidden">
+          <img
+            src="assets/img/portfolio/piccolo-paradiso/thumb.jpeg"
+            alt="Il Piccolo Paradiso — anteprima progetto"
+            class="w-full h-full object-cover block"
+          />
+          <div class="absolute inset-0 bg-black/35"></div>
+
+          <div class="absolute inset-0 flex items-center justify-center z-20">
+            <div class="text-center p-6">
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6">
+          <span class="text-pink-400 text-sm font-semibold">Social Media</span>
+          <h3 class="text-lg font-bold mt-2">+340% engagement in 3 mesi</h3>
+          <p class="text-gray-400 text-sm mt-2">Strategia social completa per una casa di riposo per anziani.</p>
+        </div>
+      </div>
+
+      <!-- Portfolio Item 2 -->
+      <div class="portfolio-item group rounded-2xl overflow-hidden bg-gray-800 relative cursor-pointer">
+        <a href="portfolio/studio-hair.html"
+           class="absolute inset-0 z-10"
+           aria-label="Apri progetto Studio Hair"></a>
+
+        <div class="aspect-video relative overflow-hidden">
+          <img
+            src="assets/img/portfolio/studio-hair/thumb.jpeg"
+            alt="Studio Hair — anteprima progetto"
+            class="w-full h-full object-cover block"
+          />
+          <div class="absolute inset-0 bg-black/35"></div>
+
+          <div class="absolute inset-0 flex items-center justify-center z-20">
+            <div class="text-center p-6">
+              <span class="text-5xl mb-4 block">💇</span>
+              <span class="text-white font-bold text-xl">Studio Hair</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6">
+          <span class="text-pink-400 text-sm font-semibold">Branding + Web</span>
+          <h3 class="text-lg font-bold mt-2">Rebranding completo</h3>
+          <p class="text-gray-400 text-sm mt-2">Nuova identità visiva e sito web per un salone di bellezza premium.</p>
+        </div>
+      </div>
+
+      <!-- Portfolio Item 3 -->
+      <div class="portfolio-item group rounded-2xl overflow-hidden bg-gray-800 relative cursor-pointer">
+        <a href="portfolio/fitzone-gym.html"
+           class="absolute inset-0 z-10"
+           aria-label="Apri progetto FitZone Gym"></a>
+
+        <div class="aspect-video relative overflow-hidden">
+          <img
+            src="assets/img/portfolio/fitzone-gym/thumb.jpeg"
+            alt="FitZone Gym — anteprima progetto"
+            class="w-full h-full object-cover block"
+          />
+          <div class="absolute inset-0 bg-black/35"></div>
+
+          <div class="absolute inset-0 flex items-center justify-center z-20">
+            <div class="text-center p-6">
+              <span class="text-5xl mb-4 block">🏋️</span>
+              <span class="text-white font-bold text-xl">FitZone Gym</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6">
+          <span class="text-pink-400 text-sm font-semibold">Ads Campaign</span>
+          <h3 class="text-lg font-bold mt-2">+120 nuovi iscritti</h3>
+          <p class="text-gray-400 text-sm mt-2">Campagna pubblicitaria locale per il lancio di una nuova palestra.</p>
+        </div>
+      </div>
+
+      <!-- Portfolio Item 4 -->
+      <div class="portfolio-item group rounded-2xl overflow-hidden bg-gray-800 relative cursor-pointer">
+        <a href="portfolio/jonny-market.html"
+           class="absolute inset-0 z-10"
+           aria-label="Apri progetto Jonny Market"></a>
+
+        <div class="aspect-video relative overflow-hidden">
+          <img
+            src="assets/img/portfolio/jonny-market/thumb.jpeg"
+            alt="Jonny Market — anteprima progetto"
+            class="w-full h-full object-cover block"
+          />
+          <div class="absolute inset-0 bg-black/35"></div>
+
+          <div class="absolute inset-0 flex items-center justify-center z-20">
+            <div class="text-center p-6">
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6">
+          <span class="text-pink-400 text-sm font-semibold">QR Marketing</span>
+          <h3 class="text-lg font-bold mt-2">Menu digitale interattivo</h3>
+          <p class="text-gray-400 text-sm mt-2">Sistema QR code per catalogo prodotti con filtri e prenotazioni.</p>
+        </div>
+      </div>
+
+      <!-- Portfolio Item 5 -->
+      <div class="portfolio-item group rounded-2xl overflow-hidden bg-gray-800 relative cursor-pointer">
+        <a href="portfolio/cocktail-lab.html"
+           class="absolute inset-0 z-10"
+           aria-label="Apri progetto Cocktail Lab"></a>
+
+        <div class="aspect-video relative overflow-hidden">
+          <img
+            src="assets/img/portfolio/cocktail-lab/thumb.jpeg"
+            alt="Cocktail Lab — anteprima progetto"
+            class="w-full h-full object-cover block"
+          />
+          <div class="absolute inset-0 bg-black/35"></div>
+
+          <div class="absolute inset-0 flex items-center justify-center z-20">
+            <div class="text-center p-6">
+              <span class="text-5xl mb-4 block">🍸</span>
+              <span class="text-white font-bold text-xl">Cocktail Lab</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6">
+          <span class="text-pink-400 text-sm font-semibold">Full Package</span>
+          <h3 class="text-lg font-bold mt-2">Da zero a sold out</h3>
+          <p class="text-gray-400 text-sm mt-2">Branding, social e ads per un nuovo cocktail bar. Primo mese tutto esaurito.</p>
+        </div>
+      </div>
+
+      <!-- Portfolio Item 6 - CTA -->
+      <div class="portfolio-item group rounded-2xl overflow-hidden bg-gradient-to-br from-pink-500/20 to-purple-600/20 border-2 border-pink-500/30 flex items-center justify-center p-8">
+        <div class="text-center">
+          <span class="text-4xl mb-4 block">✨</span>
+          <h3 class="text-xl font-bold mb-3">Il prossimo sei tu?</h3>
+          <a href="#contatti"
+             class="inline-block mt-4 px-6 py-3 bg-pink-500 rounded-full font-semibold hover:bg-pink-600 transition-colors">
+            Parliamone
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+   </section><!-- Contatti Section -->
+   <section id="contatti" class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+     <div class="text-center mb-16"><span class="text-pink-500 font-semibold text-sm tracking-wider uppercase mb-4 block">Contatti</span>
+      <h2 id="contact-cta" class="text-4xl md:text-5xl font-bold mb-6">Pronto a fare il <span class="gradient-text">doop</span>?</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">Raccontaci del tuo progetto. Ti rispondiamo entro 24 ore.</p>
+     </div>
+     <div class="bg-gray-50 rounded-3xl p-8 md:p-12">
+      <form id="contact-form"
+      action="https://formspree.io/f/xrepjdqz"
+      method="POST"
+      class="space-y-6">
+
+  <input type="hidden" name="form-name" value="contact">
+    <p class="hidden">
+    <label>Don’t fill this out: <input name="bot-field"></label>
+  </p>
+
+       <div class="grid md:grid-cols-2 gap-6">
+        <div><label for="name" class="block text-sm font-semibold mb-2">Nome</label> <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 transition-all" placeholder="Il tuo nome">
+        </div>
+        <div><label for="email" class="block text-sm font-semibold mb-2">Email</label> <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 transition-all" placeholder="La tua email">
+        </div>
+       </div>
+       <div><label for="Cellulare" class="block text-sm font-semibold mb-2">Cellulare</label> <input type="Cellulare" id="Cellulare" name="Cellulare" required class="w-full px-4 py-3 rounded-xl border border-gray-200 transition-all" placeholder="Il tuo numero di telefono">
+        </div>
+       <div><label for="business" class="block text-sm font-semibold mb-2">La tua attività</label> <input type="text" id="business" name="business" class="w-full px-4 py-3 rounded-xl border border-gray-200 transition-all" placeholder="Nome e tipo di attività">
+       </div>
+       <div><label for="service" class="block text-sm font-semibold mb-2">Servizio di interesse</label> <select id="service" name="service" class="w-full px-4 py-3 rounded-xl border border-gray-200 transition-all bg-white"> <option value="">Seleziona un servizio</option> <option value="social">Social Media Management</option> <option value="ads">Campagne Pubblicitarie</option> <option value="web">Sito Web</option> <option value="branding">Branding</option> <option value="qr">QR Marketing</option> <option value="full">Pacchetto Completo</option> </select>
+       </div>
+       <div><label for="message" class="block text-sm font-semibold mb-2">Messaggio</label> <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-200 transition-all resize-none" placeholder="Raccontaci del tuo progetto e dei tuoi obiettivi"></textarea>
+       </div><button type="submit" class="w-full magnetic-btn bg-gradient-to-r from-pink-500 to-pink-600 text-white py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:shadow-pink-500/30 transition-all"> Invia messaggio → </button>
+      </form>
+      <div id="form-success" class="hidden text-center py-12">
+       <div class="text-6xl mb-4">
+        🎉
+       </div>
+       <h3 class="text-2xl font-bold mb-2">Messaggio inviato!</h3>
+       <p class="text-gray-600">Ti ricontatteremo entro 24 ore.</p>
+      </div>
+      <div class="mt-8 pt-8 border-t border-gray-200">
+       <div class="flex flex-col md:flex-row items-center justify-center gap-6 text-center"><a href="mailto:centrodoop@gmail.com" class="flex items-center gap-2 text-gray-600 hover:text-pink-500 transition-colors">
+         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+         </svg> centrodoop@gmail.com </a> <a href="https://wa.me/3514724729" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-600 hover:text-green-500 transition-colors">
+         <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+         </svg> WhatsApp </a> <a href="https://instagram.com/doopteam" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-600 hover:text-pink-500 transition-colors">
+         <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+         </svg> @doopteam </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="bg-gray-900 text-white py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-2xl font-bold"><span class="text-white">d</span><span class="text-pink-500">oo</span><span class="text-white">p</span>
+      </div>
+      <p class="text-gray-400 text-center">Il digitale, fatto bene. © 2026 doop. Tutti i diritti riservati.</p>
+      <div class="flex items-center gap-4"><a href="https://instagram.com/doopteam" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-500 transition-colors">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg></a> <a href="https://linkedin.com/company/doop" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg></a>
+      </div>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      hero_headline: 'Prima. E doop.',
+      hero_subtitle: 'Il digitale fatto bene. Aiutiamo attività locali a crescere online con strategia, creatività e competenza.',
+      about_title: 'Non siamo un\'agenzia. Siamo doop.',
+      about_text: 'Doop nasce per dare alle attività locali gli strumenti digitali che funzionano davvero. Basta soluzioni complicate, preventivi infiniti e promesse vuote.',
+      contact_cta: 'Pronto a fare il doop?',
+      primary_color: '#E91E8C',
+      background_color: '#FFFFFF',
+      text_color: '#111827',
+      surface_color: '#F9FAFB',
+      secondary_color: '#1F2937'
+    };
+
+    // Config change handler
+    async function onConfigChange(config) {
+      const heroHeadline = document.getElementById('hero-headline');
+      const heroSubtitle = document.getElementById('hero-subtitle');
+      const aboutTitle = document.getElementById('about-title');
+      const aboutText = document.getElementById('about-text');
+      const contactCta = document.getElementById('contact-cta');
+
+      if (heroHeadline) {
+        const headlineText = config.hero_headline || defaultConfig.hero_headline;
+        heroHeadline.innerHTML = headlineText.replace('doop', '<span class="gradient-text">doop</span>');
+      }
+      
+      if (heroSubtitle) {
+        heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+      }
+      
+      if (aboutTitle) {
+        const titleText = config.about_title || defaultConfig.about_title;
+        aboutTitle.innerHTML = titleText.replace('doop', '<span class="gradient-text">doop</span>');
+      }
+      
+      if (aboutText) {
+        aboutText.textContent = config.about_text || defaultConfig.about_text;
+      }
+      
+      if (contactCta) {
+        const ctaText = config.contact_cta || defaultConfig.contact_cta;
+        contactCta.innerHTML = ctaText.replace('doop', '<span class="gradient-text">doop</span>');
+      }
+    }
+
+    // Map to capabilities
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              config.primary_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ primary_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_color || defaultConfig.secondary_color,
+            set: (value) => {
+              config.secondary_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ secondary_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    // Map to edit panel values
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['hero_headline', config.hero_headline || defaultConfig.hero_headline],
+        ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+        ['about_title', config.about_title || defaultConfig.about_title],
+        ['about_text', config.about_text || defaultConfig.about_text],
+        ['contact_cta', config.contact_cta || defaultConfig.contact_cta]
+      ]);
+    }
+
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    // Navigation scroll effect
+    const navbar = document.getElementById('navbar');
+    const appWrapper = document.getElementById('app-wrapper');
+    
+    appWrapper.addEventListener('scroll', () => {
+      if (appWrapper.scrollTop > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking any anchor link
+document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+  });
+});
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Form submission
+    const contactForm = document.getElementById('contact-form');
+const formSuccess = document.getElementById('form-success');
+
+// Form submission — Formspree (NO mailto)
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  try {
+    const formData = new FormData(contactForm);
+
+    const res = await fetch(contactForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (res.ok) {
+      contactForm.classList.add('hidden');
+      formSuccess.classList.remove('hidden');
+      contactForm.reset();
+    } else {
+      alert('Errore nell’invio del messaggio. Riprova tra poco.');
+    }
+  } catch (error) {
+    alert('Errore di rete. Controlla la connessione.');
+  }
+});
+
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  
+  // Feedback visivo
+  contactForm.classList.add('hidden');
+  formSuccess.classList.remove('hidden');
+});
+
+    // Smooth scroll for anchor links
+   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const href = this.getAttribute('href');
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    const offset = 90; // compenso navbar
+    const top = target.offsetTop - offset;
+
+    appWrapper.scrollTo({ top, behavior: 'smooth' });
+  });
+});
+  </script>
+  <script>
+  (function () {
+    const appWrapper = document.getElementById('app-wrapper') || null;
+
+    // 1) AUTO-APPICA l’effetto a elementi "sensati" senza cambiare l’HTML
+    //    (puoi aggiungere/togliere selettori qui senza toccare il markup)
+    const selectors = [
+      // Intestazioni di sezione
+      'section span[class*="tracking-wider"]',
+      'section h1',
+      'section h2',
+      'section h3',
+      'section p',
+
+      // Cards / box (servizi, pacchetti, portfolio ecc.)
+      '.service-card',
+      '.package-card',
+      '.portfolio-item',
+      'form',
+      'footer .max-w-6xl > *'
+    ];
+
+    const elements = Array.from(new Set(
+      selectors.flatMap(sel => Array.from(document.querySelectorAll(sel)))
+    ));
+
+    // Esclusioni: roba che NON vuoi animare (hero già ha fade-in, blob, navbar, menu)
+    const shouldSkip = (el) =>
+      el.closest('#navbar') ||
+      el.closest('#mobile-menu') ||
+      el.closest('#hero') ||
+      el.classList.contains('blob') ||
+      el.classList.contains('fade-in');
+
+    // Aggiunge la classe reveal + delay intelligente per gruppi in griglia
+    const prepared = [];
+    for (const el of elements) {
+      if (!el || shouldSkip(el)) continue;
+
+      // Evita di animare roba "vuota" o wrapper enormi
+      const text = (el.textContent || '').trim();
+      const isBigWrapper = el.tagName === 'SECTION' || el.id === 'app-wrapper';
+      if (isBigWrapper) continue;
+      if (!text && !el.querySelector('img, svg, button, a, input, textarea, select')) continue;
+
+      el.classList.add('reveal');
+
+      // Delay: se è dentro una griglia, crea una scaletta senza markup
+      const grid = el.closest('.grid');
+      if (grid) {
+        const siblings = Array.from(grid.children).filter(x => x.classList.contains('reveal'));
+        const index = siblings.indexOf(el);
+        el.dataset.delay = String(Math.max(0, index) * 90); // 0, 90, 180, ...
+      } else {
+        el.dataset.delay = el.dataset.delay || '0';
+      }
+
+      prepared.push(el);
+    }
+
+    // 2) Observer (IMPORTANTE: root = appWrapper perché scrolli lì dentro)
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const el = entry.target;
+        const delay = Number(el.dataset.delay || 0);
+        el.style.transitionDelay = `${delay}ms`;
+
+        el.classList.add('is-visible');
+        io.unobserve(el);
+      });
+    }, {
+      root: appWrapper,      // <-- QUESTO è il pezzo cruciale nel tuo sito
+      threshold: 0.15
+    });
+
+    prepared.forEach(el => io.observe(el));
+  })();
+</script>
+
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c30aed42507ee61',t:'MTc2OTI2OTc4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
